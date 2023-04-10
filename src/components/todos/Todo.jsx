@@ -8,10 +8,12 @@ import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditTwoToneIcon from "@mui/icons-material/EditTwoTone";
 import useStyles from "../../styles/styles";
+import Checkbox from "@mui/material/Checkbox";
 
-export default function Todo({ todos }) {
+export default function Todo({ todos, onDeleteHandler, onCheckHandler }) {
   const classes = useStyles();
-  const { todoTitle, todoTopic, complete } = todos;
+  const { id, todoTitle, todoTopic, complete } = todos;
+  const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
   const [expanded, setExpanded] = React.useState(false);
 
@@ -41,8 +43,18 @@ export default function Todo({ todos }) {
             Aliquam eget maximus est, id dignissim quam.
           </Typography> */}
           <div className={classes.btnActions}>
+            <div className={classes.checkBox}>
+              <Checkbox {...label} color="success" onChange={onCheckHandler} />
+            </div>
+            <Typography variant="subtitle2">
+              Dead line in 15 October 2023
+            </Typography>
             <div className={classes.deleteBtn}>
-              <IconButton aria-label="delete" size="small">
+              <IconButton
+                onClick={() => onDeleteHandler(id)}
+                aria-label="delete"
+                size="small"
+              >
                 <DeleteIcon fontSize="small" />
               </IconButton>
             </div>

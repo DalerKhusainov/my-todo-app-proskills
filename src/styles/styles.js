@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
     width: "max-content",
   },
   btnActions: {
-    backgroundColor: "blue",
     display: "flex",
     alignItems: "center",
   },
@@ -26,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "auto",
     marginRight: "5px",
   },
+  checkBox: { marginRight: "10px" },
 }));
 
 export default useStyles;
