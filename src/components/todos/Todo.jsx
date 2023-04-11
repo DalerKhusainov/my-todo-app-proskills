@@ -9,10 +9,11 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditTwoToneIcon from "@mui/icons-material/EditTwoTone";
 import useStyles from "../../styles/styles";
 import Checkbox from "@mui/material/Checkbox";
+import AccessAlarmsIcon from "@mui/icons-material/AccessAlarms";
 
 export default function Todo({ todos, onDeleteHandler, onCheckHandler }) {
   const classes = useStyles();
-  const { id, todoTitle, todoTopic, complete } = todos;
+  const { id, todoTitle, todoTopic, complete, status, date } = todos;
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
   const [expanded, setExpanded] = React.useState(false);
@@ -32,10 +33,12 @@ export default function Todo({ todos, onDeleteHandler, onCheckHandler }) {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <Typography sx={{ width: "33%", flexShrink: 0 }}>
+          <Typography variant="h6" sx={{ width: "40%", flexShrink: 0 }}>
             {todoTitle}
           </Typography>
-          <Typography sx={{ color: "text.secondary" }}>{todoTopic}</Typography>
+          <Typography variant="overline" sx={{ color: "text.secondary" }}>
+            {todoTopic}
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           {/* <Typography>
@@ -46,9 +49,14 @@ export default function Todo({ todos, onDeleteHandler, onCheckHandler }) {
             <div className={classes.checkBox}>
               <Checkbox {...label} color="success" onChange={onCheckHandler} />
             </div>
-            <Typography variant="subtitle2">
-              Dead line in 15 October 2023
-            </Typography>
+            <div className={classes.alarmDate}>
+              <div className={classes.iconClock}>
+                <AccessAlarmsIcon fontSize="small" color="primary" />
+              </div>
+              <Typography variant="subtitle2" color="primary">
+                {date}
+              </Typography>
+            </div>
             <div className={classes.deleteBtn}>
               <IconButton
                 onClick={() => onDeleteHandler(id)}
