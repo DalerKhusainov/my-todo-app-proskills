@@ -8,6 +8,8 @@ export default function AddTodo({
   addTodoHandler,
   addClickHandler,
   datePickerHandler,
+  todoSubjectRef,
+  todoConceptsRef,
 }) {
   const classes = useStyles();
   return (
@@ -19,8 +21,8 @@ export default function AddTodo({
         <TextField
           id="outlined-textarea"
           label="Enter Subject"
-          placeholder="Placeholder"
-          multiline
+          placeholder="Enter Subject"
+          // ref={todoSubjectRef}
           onChange={addTodoHandler("todoTitle")}
         />
       </div>
@@ -28,16 +30,14 @@ export default function AddTodo({
         <TextField
           id="outlined-textarea"
           label="Enter Concepts"
-          placeholder="Placeholder"
-          multiline
+          placeholder="Enter Concepts"
+          // ref={todoConceptsRef}
           onChange={addTodoHandler("todoTopic")}
         />
       </div>
-      {/* <div className={classes.btnAdd}> */}
       <Button onClick={addClickHandler} variant="outlined" size="large">
         Add
       </Button>
-      {/* </div> */}
     </div>
   );
 }

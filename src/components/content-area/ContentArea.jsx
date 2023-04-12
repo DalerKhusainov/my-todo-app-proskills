@@ -10,6 +10,9 @@ const LOCALE_STORAGE_KEY = "todoApp.todos";
 
 export default function ContentArea() {
   const classes = useStyles();
+  const todoSubjectRef = React.useRef();
+  const todoConceptsRef = React.useRef();
+
   const [allTodos, setAllTodos] = React.useState(todos);
   const [filteredTodo, setFilteredTodo] = React.useState(allTodos);
   const [completedTodos, setCompletedTodos] = React.useState([]);
@@ -63,10 +66,14 @@ export default function ContentArea() {
   ///////////////////////////////////////////////////////////
   /////// HANDLER FOR CREATING OBJECT OF todos
   const addTodoHandler = (key) => (e) => {
+    e.preventDefault();
     setAddTodo({
       ...addTodo,
       [key]: e.target.value,
     });
+    console.log(e.target.value);
+    // console.log(todoSubjectRef.current.value);
+    // console.log(todoConceptsRef.current.value);
   };
 
   ///////////////////////////////////////////////////////////
@@ -103,6 +110,8 @@ export default function ContentArea() {
           addTodoHandler={addTodoHandler}
           addClickHandler={addClickHandler}
           datePickerHandler={datePickerHandler}
+          todoSubjectRef={todoSubjectRef}
+          todoConceptsRef={todoConceptsRef}
         />
         <TodoList
           todos={filteredTodo}

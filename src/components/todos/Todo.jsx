@@ -6,7 +6,6 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
-// import EditTwoToneIcon from "@mui/icons-material/EditTwoTone";
 import useStyles from "../../styles/styles";
 import Checkbox from "@mui/material/Checkbox";
 import AccessAlarmsIcon from "@mui/icons-material/AccessAlarms";
@@ -53,6 +52,7 @@ export default function Todo({ todos, onDeleteHandler, onCheckHandler }) {
                 color="success"
                 onChange={() => onCheckHandler(id)}
                 checked={complete}
+                size="small"
               />
             </div>
             <div className={classes.alarmDate}>
