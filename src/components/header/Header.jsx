@@ -13,7 +13,7 @@ export default function Header() {
       </div>
       <div className={classes.headingSecondary}></div>
       <Typography variant="h4" color="textSecondary" textAlign="center">
-        Create roadmap of your development
+        Create a roadmap of your development
       </Typography>
     </>
   );

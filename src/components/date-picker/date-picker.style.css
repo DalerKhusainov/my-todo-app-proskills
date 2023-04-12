@@ -7,7 +7,7 @@ input[type="date"] {
   border: solid 1px #adb5bd;
   outline: none;
   border-radius: 5px;
-  width: max-content;
+  width: 170px;
 }
 
 ::webkit-calendar-picker-indicator {

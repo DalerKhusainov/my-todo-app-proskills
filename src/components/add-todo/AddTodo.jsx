@@ -12,24 +12,32 @@ export default function AddTodo({
   const classes = useStyles();
   return (
     <div className={classes.inputField}>
-      <DatePicker datePickerHandler={datePickerHandler} />
-      <TextField
-        id="outlined-textarea"
-        label="Enter Subject"
-        placeholder="Placeholder"
-        multiline
-        onChange={addTodoHandler("todoTitle")}
-      />
-      <TextField
-        id="outlined-textarea"
-        label="Enter Concepts"
-        placeholder="Placeholder"
-        multiline
-        onChange={addTodoHandler("todoTopic")}
-      />
-      <Button onClick={addClickHandler} variant="outlined">
+      <div className={classes.inputsField}>
+        <DatePicker datePickerHandler={datePickerHandler} />
+      </div>
+      <div className={classes.inputsField}>
+        <TextField
+          id="outlined-textarea"
+          label="Enter Subject"
+          placeholder="Placeholder"
+          multiline
+          onChange={addTodoHandler("todoTitle")}
+        />
+      </div>
+      <div className={classes.inputsField}>
+        <TextField
+          id="outlined-textarea"
+          label="Enter Concepts"
+          placeholder="Placeholder"
+          multiline
+          onChange={addTodoHandler("todoTopic")}
+        />
+      </div>
+      {/* <div className={classes.btnAdd}> */}
+      <Button onClick={addClickHandler} variant="outlined" size="large">
         Add
       </Button>
+      {/* </div> */}
     </div>
   );
 }

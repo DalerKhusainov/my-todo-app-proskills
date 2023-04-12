@@ -2,18 +2,20 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
   todoList: {
-    width: "50vw",
-    padding: "20px 0px",
-    margin: "auto",
+    width: "800px",
+    height: "350px",
+    overflowY: "scroll",
+    paddingTop: "20px",
+    margin: "30px 0px 30px 0px",
   },
   contentArea: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
     padding: "20px",
-    margin: "auto",
-    width: "max-content",
+    margin: "30px auto",
+    width: "900px",
+    height: "500px",
   },
   btnActions: {
     display: "flex",
@@ -27,13 +29,14 @@ const useStyles = makeStyles((theme) => ({
   alarmDate: { display: "flex", alignItems: "center" },
   iconClock: { marginRight: "3px" },
   inputField: {
-    display: "grid",
-    gridTemplateColumns: "1fr 1.5fr 1.5fr 0.5fr",
-    columnGap: "10px",
-    width: "50vw",
+    display: "flex",
+    justifyContent: "space-between",
+    columnGap: "35px",
+    marginLeft: "20px",
+    marginRight: "20px",
   },
   headingPrimary: { marginTop: "30px" },
-  // headingSecondary: { marginBottom: "30px" },
+  inputsField: { width: "200px" },
 }));
 
 export default useStyles;
