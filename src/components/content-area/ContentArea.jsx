@@ -66,7 +66,6 @@ export default function ContentArea() {
   ///////////////////////////////////////////////////////////
   /////// HANDLER FOR CREATING OBJECT OF todos
   const addTodoHandler = (key) => (e) => {
-    e.preventDefault();
     setAddTodo({
       ...addTodo,
       [key]: e.target.value,
