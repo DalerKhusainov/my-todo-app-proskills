@@ -8,8 +8,6 @@ export default function AddTodo({
   addTodoHandler,
   addClickHandler,
   datePickerHandler,
-  todoSubjectRef,
-  todoConceptsRef,
 }) {
   const classes = useStyles();
   return (

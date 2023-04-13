@@ -10,8 +10,8 @@ const LOCALE_STORAGE_KEY = "todoApp.todos";
 
 export default function ContentArea() {
   const classes = useStyles();
-  const todoSubjectRef = React.useRef();
-  const todoConceptsRef = React.useRef();
+  const subjectInputEditRef = React.useRef();
+  const conceptsTopicEditRef = React.useRef();
 
   const [allTodos, setAllTodos] = React.useState(todos);
   const [filteredTodo, setFilteredTodo] = React.useState(allTodos);
@@ -101,7 +101,29 @@ export default function ContentArea() {
     });
   };
 
-  // console.log(completedTodos);
+  ////////////////////////////////////////////////////////////////////
+  /////// MODAL EDIT SETUP
+  const [openModal, setOpenModal] = React.useState(false);
+  const [defaultValueSubject, setDefaultValueSubject] = React.useState("");
+  const [defaultValueTopic, setDefaultValueTopic] = React.useState("");
+
+  const handleOpen = (id) => {
+    setOpenModal(true);
+    // console.log(id);
+    const selectedEditTodo = filteredTodo.find((todo) => todo.id === id);
+    setDefaultValueSubject(selectedEditTodo.todoTitle);
+    setDefaultValueTopic(selectedEditTodo.todoTopic);
+    // console.log(selectedEditTodo.todoTitle);
+    // console.log((selectedEditTodo.todoTitle = "New title todo"));
+  };
+  const handleClose = () => {
+    setOpenModal(false);
+    const newEditSubject = subjectInputEditRef.current.value;
+    const newEditTopic = conceptsTopicEditRef.current.value;
+    console.log(newEditSubject);
+    console.log(newEditTopic);
+    // console.log("The button edit was clicked");
+  };
 
   return (
     <>
@@ -110,13 +132,18 @@ export default function ContentArea() {
           addTodoHandler={addTodoHandler}
           addClickHandler={addClickHandler}
           datePickerHandler={datePickerHandler}
-          todoSubjectRef={todoSubjectRef}
-          todoConceptsRef={todoConceptsRef}
         />
         <TodoList
           todos={filteredTodo}
           onDeleteHandler={onDeleteHandler}
           onCheckHandler={onCheckHandler}
+          openModal={openModal}
+          handleOpen={handleOpen}
+          handleClose={handleClose}
+          subjectInputEditRef={subjectInputEditRef}
+          conceptsTopicEditRef={conceptsTopicEditRef}
+          defaultValueSubject={defaultValueSubject}
+          defaultValueTopic={defaultValueTopic}
         />
         <Button
           onClick={() => onDeleteCompletedHandler(filteredTodo)}
