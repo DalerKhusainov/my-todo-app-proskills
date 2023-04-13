@@ -11,13 +11,25 @@ import Checkbox from "@mui/material/Checkbox";
 import AccessAlarmsIcon from "@mui/icons-material/AccessAlarms";
 import ModalEdit from "../modal-edit/ModalEdit";
 
-export default function Todo({ todos, onDeleteHandler, onCheckHandler }) {
+export default function Todo({
+  todos,
+  onDeleteHandler,
+  onCheckHandler,
+  openModal,
+  handleOpen,
+  handleClose,
+  subjectInputEditRef,
+  conceptsTopicEditRef,
+  defaultValueSubject,
+  defaultValueTopic,
+}) {
   const classes = useStyles();
   const { id, todoTitle, todoTopic, date, complete } = todos;
+
+  ////////////////////////////////////////////////////////////////////
+  /////// ACCORDION SETUP
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
-
   const [expanded, setExpanded] = React.useState(false);
-
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
@@ -72,10 +84,16 @@ export default function Todo({ todos, onDeleteHandler, onCheckHandler }) {
                 <DeleteIcon fontSize="small" />
               </IconButton>
             </div>
-            <ModalEdit />
-            {/* <IconButton aria-label="delete" size="small">
-              <EditTwoToneIcon fontSize="small" />
-            </IconButton> */}
+            <ModalEdit
+              openModal={openModal}
+              handleOpen={handleOpen}
+              handleClose={handleClose}
+              todos={todos}
+              subjectInputEditRef={subjectInputEditRef}
+              conceptsTopicEditRef={conceptsTopicEditRef}
+              defaultValueSubject={defaultValueSubject}
+              defaultValueTopic={defaultValueTopic}
+            />
           </div>
         </AccordionDetails>
       </Accordion>

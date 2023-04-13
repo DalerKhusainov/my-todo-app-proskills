@@ -37,6 +37,18 @@ const useStyles = makeStyles((theme) => ({
   },
   headingPrimary: { marginTop: "30px" },
   inputsField: { width: "200px" },
+  inputsEditFields: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "space-around",
+    width: "300px",
+    height: "280px",
+  },
+  inputsEdit: {
+    width: "200px",
+    height: "55px",
+  },
 }));
 
 export default useStyles;

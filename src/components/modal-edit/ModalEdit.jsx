@@ -1,47 +1,60 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-// import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import IconButton from "@mui/material/IconButton";
 import EditTwoToneIcon from "@mui/icons-material/EditTwoTone";
+import InputEditTodos from "./input-edit-todos/InputEditTodos";
 
 const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: 300,
   bgcolor: "background.paper",
-  border: "2px solid #000",
+  border: "2px solid #1976D2",
   boxShadow: 24,
   p: 4,
 };
 
-export default function ModalEdit() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+export default function ModalEdit({
+  openModal,
+  handleOpen,
+  handleClose,
+  todos,
+  subjectInputEditRef,
+  conceptsTopicEditRef,
+  defaultValueSubject,
+  defaultValueTopic,
+}) {
+  // const [openModal, setOpenModal] = React.useState(false);
+  // const handleOpen = () => setOpenModal(true);
+  // const handleClose = () => setOpenModal(false);
+  // console.log(todos);
 
   return (
     <div>
-      {/* <Button >Open modal</Button> */}
-      <IconButton onClick={handleOpen} aria-label="delete" size="small">
+      <IconButton
+        onClick={() => handleOpen(todos.id)}
+        aria-label="delete"
+        size="small"
+      >
         <EditTwoToneIcon fontSize="small" />
       </IconButton>
       <Modal
-        open={open}
+        open={openModal}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+          <InputEditTodos
+            handleClose={handleClose}
+            subjectInputEditRef={subjectInputEditRef}
+            conceptsTopicEditRef={conceptsTopicEditRef}
+            defaultValueSubject={defaultValueSubject}
+            defaultValueTopic={defaultValueTopic}
+          />
         </Box>
       </Modal>
     </div>

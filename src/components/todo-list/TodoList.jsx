@@ -2,7 +2,18 @@ import React from "react";
 import Todo from "../todos/Todo";
 import useStyles from "../../styles/styles";
 
-export default function TodoList({ todos, onDeleteHandler, onCheckHandler }) {
+export default function TodoList({
+  todos,
+  onDeleteHandler,
+  onCheckHandler,
+  openModal,
+  handleOpen,
+  handleClose,
+  subjectInputEditRef,
+  conceptsTopicEditRef,
+  defaultValueSubject,
+  defaultValueTopic,
+}) {
   const classes = useStyles();
 
   return (
@@ -14,6 +25,13 @@ export default function TodoList({ todos, onDeleteHandler, onCheckHandler }) {
             todos={todo}
             onDeleteHandler={onDeleteHandler}
             onCheckHandler={onCheckHandler}
+            openModal={openModal}
+            handleOpen={handleOpen}
+            handleClose={handleClose}
+            subjectInputEditRef={subjectInputEditRef}
+            conceptsTopicEditRef={conceptsTopicEditRef}
+            defaultValueSubject={defaultValueSubject}
+            defaultValueTopic={defaultValueTopic}
           />
         ))}
       </div>
