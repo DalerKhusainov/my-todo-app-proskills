@@ -10,7 +10,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 300,
+  width: 350,
   bgcolor: "background.paper",
   border: "2px solid #1976D2",
   boxShadow: 24,
@@ -22,10 +22,11 @@ export default function ModalEdit({
   handleOpen,
   handleClose,
   todos,
-  subjectInputEditRef,
-  conceptsTopicEditRef,
   defaultValueSubject,
   defaultValueTopic,
+  datePickerEditHandler,
+  onEditChangeSubject,
+  onEditChangeTopic,
 }) {
   // const [openModal, setOpenModal] = React.useState(false);
   // const handleOpen = () => setOpenModal(true);
@@ -50,10 +51,11 @@ export default function ModalEdit({
         <Box sx={style}>
           <InputEditTodos
             handleClose={handleClose}
-            subjectInputEditRef={subjectInputEditRef}
-            conceptsTopicEditRef={conceptsTopicEditRef}
             defaultValueSubject={defaultValueSubject}
             defaultValueTopic={defaultValueTopic}
+            datePickerEditHandler={datePickerEditHandler}
+            onEditChangeSubject={onEditChangeSubject}
+            onEditChangeTopic={onEditChangeTopic}
           />
         </Box>
       </Modal>

@@ -18,10 +18,11 @@ export default function Todo({
   openModal,
   handleOpen,
   handleClose,
-  subjectInputEditRef,
-  conceptsTopicEditRef,
   defaultValueSubject,
   defaultValueTopic,
+  datePickerEditHandler,
+  onEditChangeSubject,
+  onEditChangeTopic,
 }) {
   const classes = useStyles();
   const { id, todoTitle, todoTopic, date, complete } = todos;
@@ -35,7 +36,7 @@ export default function Todo({
   };
 
   return (
-    <div>
+    <div className={classes.todo}>
       <Accordion
         expanded={expanded === "panel1"}
         onChange={handleChange("panel1")}
@@ -89,10 +90,11 @@ export default function Todo({
               handleOpen={handleOpen}
               handleClose={handleClose}
               todos={todos}
-              subjectInputEditRef={subjectInputEditRef}
-              conceptsTopicEditRef={conceptsTopicEditRef}
               defaultValueSubject={defaultValueSubject}
               defaultValueTopic={defaultValueTopic}
+              datePickerEditHandler={datePickerEditHandler}
+              onEditChangeSubject={onEditChangeSubject}
+              onEditChangeTopic={onEditChangeTopic}
             />
           </div>
         </AccordionDetails>

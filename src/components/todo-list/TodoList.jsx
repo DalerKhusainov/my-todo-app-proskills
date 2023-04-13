@@ -9,29 +9,32 @@ export default function TodoList({
   openModal,
   handleOpen,
   handleClose,
-  subjectInputEditRef,
-  conceptsTopicEditRef,
   defaultValueSubject,
   defaultValueTopic,
+  datePickerEditHandler,
+  onEditChangeSubject,
+  onEditChangeTopic,
 }) {
   const classes = useStyles();
 
   return (
     <>
       <div className={classes.todoList}>
-        {todos.map((todo) => (
+        {todos.map((todo, index) => (
           <Todo
             key={todo.id}
             todos={todo}
+            index={index}
             onDeleteHandler={onDeleteHandler}
             onCheckHandler={onCheckHandler}
             openModal={openModal}
             handleOpen={handleOpen}
             handleClose={handleClose}
-            subjectInputEditRef={subjectInputEditRef}
-            conceptsTopicEditRef={conceptsTopicEditRef}
             defaultValueSubject={defaultValueSubject}
             defaultValueTopic={defaultValueTopic}
+            datePickerEditHandler={datePickerEditHandler}
+            onEditChangeSubject={onEditChangeSubject}
+            onEditChangeTopic={onEditChangeTopic}
           />
         ))}
       </div>

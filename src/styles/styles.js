@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles((theme) => ({
   todoList: {
     width: "800px",
-    height: "350px",
+    height: "400px",
     overflowY: "scroll",
     paddingTop: "20px",
     margin: "30px 0px 30px 0px",
@@ -12,11 +12,15 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "20px",
-    margin: "30px auto",
+    padding: "30px",
+    margin: "50px auto",
     width: "900px",
-    height: "500px",
+    height: "600px",
+    backgroundColor: "#f1f3f5",
+    borderRadius: "10px",
+    boxShadow: "rgb(38, 57, 77) 0px 20px 30px -10px",
   },
+  todo: { marginBottom: "1px" },
   btnActions: {
     display: "flex",
     alignItems: "center",
@@ -41,13 +45,24 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    justifyContent: "space-around",
-    width: "300px",
+    justifyContent: "center",
+    margin: "auto",
+    width: "350px",
     height: "280px",
   },
   inputsEdit: {
+    width: "310px",
+    height: "55px",
+    marginBottom: "20px",
+  },
+  inputsEditDate: {
     width: "200px",
     height: "55px",
+  },
+  inputDateAndEditButton: {
+    display: "flex",
+    alignItems: "center",
+    columnGap: "30px",
   },
 }));
 
