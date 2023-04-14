@@ -20,7 +20,6 @@ export default function AddTodo({
           id="outlined-textarea"
           label="Enter Subject"
           placeholder="Enter Subject"
-          // ref={todoSubjectRef}
           onChange={addTodoHandler("todoTitle")}
         />
       </div>
@@ -29,7 +28,6 @@ export default function AddTodo({
           id="outlined-textarea"
           label="Enter Concepts"
           placeholder="Enter Concepts"
-          // ref={todoConceptsRef}
           onChange={addTodoHandler("todoTopic")}
         />
       </div>

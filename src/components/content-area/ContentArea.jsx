@@ -13,7 +13,7 @@ import todos from "../../data/data";
 // SPECIAL LIBRARY FOR GENERATE A RANDOM ID
 import { v4 as uuid } from "uuid";
 // CREATED FUNCTIONS
-import formatDate from "../../functions/functions";
+import { formatDate } from "../../functions/functions";
 
 ////////////////////////////////////////////////////////////////////
 /////// KEY PROPERTY FOR LOCALE STORAGE
