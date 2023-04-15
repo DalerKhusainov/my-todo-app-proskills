@@ -30,8 +30,12 @@ export default function ContentArea() {
   /////// VARIABLES OF Todos
   const [allTodos, setAllTodos] = React.useState(todos);
   const [filteredTodo, setFilteredTodo] = React.useState(allTodos);
-  const [completedTodos, setCompletedTodos] = React.useState([]);
-  const [addTodo, setAddTodo] = React.useState({});
+
+  ////////////////////////////////////////////////////////////////////
+  /////// ADDING NEW Todos VARIABLE AND USEREF HOOK VARIABLES FROM INPUTS
+  const [addTodosDate, setAddTodosDate] = React.useState("");
+  const todoSubjectRef = React.useRef();
+  const todoTopicRef = React.useRef();
 
   ////////////////////////////////////////////////////////////////////
   /////// MODAL USESTATES
@@ -71,7 +75,6 @@ export default function ContentArea() {
     const newCompletedTodo = allTodos.filter((todo) => todo.complete === false);
     setAllTodos(newCompletedTodo);
     setFilteredTodo(newCompletedTodo);
-    setCompletedTodos(newCompletedTodo);
   };
 
   ///////////////////////////////////////////////////////////
@@ -84,35 +87,46 @@ export default function ContentArea() {
     setFilteredTodo(newTodos);
   };
 
-  ///////////////////////////////////////////////////////////
-  /////// HANDLER FOR CREATING AN OBJECT OF Todos
-  const addTodoHandler = (key) => (e) => {
-    setAddTodo({
-      ...addTodo,
-      [key]: e.target.value,
-    });
-  };
-
-  ///////////////////////////////////////////////////////////
-  /////// CLICK HANDLER FOR ADDING A NEW ToDO
-  const addClickHandler = () => {
-    let newAddedTodo = [...allTodos, addTodo];
-    setAllTodos(newAddedTodo);
-    setFilteredTodo(newAddedTodo);
-  };
-
-  ///////////////////////////////////////////////////////////
-  /////// DATE PICKER HANDLER AND INITIALIZING THE OBJECT OF todo
+  ////////////////////////////////////////////////////////////////////
+  /////// ADD Todos IMPUT FIELD
+  //////////////////////////////
+  // DATE PICKER HANDLER AND INITIALIZING THE OBJECT OF todo
   const datePickerHandler = (e) => {
     const fullDate = e.target.value;
     const newformatedDate = formatDate(fullDate);
-    setAddTodo({
-      id: uuid(),
-      todoTitle: "",
-      todoTopic: "",
-      complete: false,
-      date: newformatedDate,
-    });
+    setAddTodosDate(newformatedDate);
+  };
+
+  // CLICK HANDLER FOR ADDING A NEW ToDO
+  const addClickHandler = () => {
+    const subjectName = todoSubjectRef.current.value;
+    const topicName = todoTopicRef.current.value;
+    if (subjectName === "" || topicName === "") return;
+    todoSubjectRef.current.value = null;
+    todoTopicRef.current.value = null;
+    const newId = uuid();
+
+    setAllTodos([
+      ...allTodos,
+      {
+        id: newId,
+        todoTitle: subjectName,
+        todoTopic: topicName,
+        complete: false,
+        date: addTodosDate,
+      },
+    ]);
+
+    setFilteredTodo([
+      ...allTodos,
+      {
+        id: newId,
+        todoTitle: subjectName,
+        todoTopic: topicName,
+        complete: false,
+        date: addTodosDate,
+      },
+    ]);
   };
 
   ////////////////////////////////////////////////////////////////////
@@ -125,7 +139,7 @@ export default function ContentArea() {
     setEditedDate(newformatedDate);
   };
 
-  // A HANDLER FOR OPENING A MODAL AND STORING DEFAULT VALUE INTO EDIT INPUTS
+  // A HANDLER FOR OPENING A MODAL AND STORING DEFAULT VALUES INTO EDIT INPUTS
   const handleOpen = (id) => {
     setOpenModal(true);
     setSelectedTodosId(id);
@@ -169,9 +183,11 @@ export default function ContentArea() {
     <>
       <div className={classes.contentArea}>
         <AddTodo
-          addTodoHandler={addTodoHandler}
+          // addTodoHandler={addTodoHandler}
           addClickHandler={addClickHandler}
           datePickerHandler={datePickerHandler}
+          todoSubjectRef={todoSubjectRef}
+          todoTopicRef={todoTopicRef}
         />
         <TodoList
           todos={filteredTodo}
@@ -182,6 +198,7 @@ export default function ContentArea() {
           handleClose={handleClose}
           defaultValueSubject={defaultValueSubject}
           defaultValueTopic={defaultValueTopic}
+          editedDate={editedDate}
           datePickerEditHandler={datePickerEditHandler}
           onEditChangeSubject={onEditChangeSubject}
           onEditChangeTopic={onEditChangeTopic}

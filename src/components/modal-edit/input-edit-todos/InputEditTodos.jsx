@@ -10,6 +10,7 @@ export default function InputEditTodos({
   datePickerEditHandler,
   onEditChangeSubject,
   onEditChangeTopic,
+  editedDate,
 }) {
   const classes = useStyles();
 
@@ -39,7 +40,10 @@ export default function InputEditTodos({
       </div>
       <div className={classes.inputDateAndEditButton}>
         <div className={classes.inputsEditDate}>
-          <DatePickerEdit datePickerEditHandler={datePickerEditHandler} />
+          <DatePickerEdit
+            datePickerEditHandler={datePickerEditHandler}
+            editedDate={editedDate}
+          />
         </div>
         <div>
           <Button onClick={handleClose} variant="outlined" size="large">

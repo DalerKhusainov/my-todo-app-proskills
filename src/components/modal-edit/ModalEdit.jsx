@@ -24,6 +24,7 @@ export default function ModalEdit({
   todos,
   defaultValueSubject,
   defaultValueTopic,
+  editedDate,
   datePickerEditHandler,
   onEditChangeSubject,
   onEditChangeTopic,
@@ -56,6 +57,7 @@ export default function ModalEdit({
             datePickerEditHandler={datePickerEditHandler}
             onEditChangeSubject={onEditChangeSubject}
             onEditChangeTopic={onEditChangeTopic}
+            editedDate={editedDate}
           />
         </Box>
       </Modal>

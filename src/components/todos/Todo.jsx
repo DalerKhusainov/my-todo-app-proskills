@@ -20,6 +20,7 @@ export default function Todo({
   handleClose,
   defaultValueSubject,
   defaultValueTopic,
+  editedDate,
   datePickerEditHandler,
   onEditChangeSubject,
   onEditChangeTopic,
@@ -92,6 +93,7 @@ export default function Todo({
               todos={todos}
               defaultValueSubject={defaultValueSubject}
               defaultValueTopic={defaultValueTopic}
+              editedDate={editedDate}
               datePickerEditHandler={datePickerEditHandler}
               onEditChangeSubject={onEditChangeSubject}
               onEditChangeTopic={onEditChangeTopic}

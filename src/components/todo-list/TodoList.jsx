@@ -11,6 +11,7 @@ export default function TodoList({
   handleClose,
   defaultValueSubject,
   defaultValueTopic,
+  editedDate,
   datePickerEditHandler,
   onEditChangeSubject,
   onEditChangeTopic,
@@ -32,6 +33,7 @@ export default function TodoList({
             handleClose={handleClose}
             defaultValueSubject={defaultValueSubject}
             defaultValueTopic={defaultValueTopic}
+            editedDate={editedDate}
             datePickerEditHandler={datePickerEditHandler}
             onEditChangeSubject={onEditChangeSubject}
             onEditChangeTopic={onEditChangeTopic}

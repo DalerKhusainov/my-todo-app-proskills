@@ -5,9 +5,10 @@ import useStyles from "../../styles/styles";
 import DatePicker from "../date-picker/DatePicker";
 
 export default function AddTodo({
-  addTodoHandler,
   addClickHandler,
   datePickerHandler,
+  todoSubjectRef,
+  todoTopicRef,
 }) {
   const classes = useStyles();
   return (
@@ -18,17 +19,17 @@ export default function AddTodo({
       <div className={classes.inputsField}>
         <TextField
           id="outlined-textarea"
+          inputRef={todoSubjectRef}
           label="Enter Subject"
           placeholder="Enter Subject"
-          onChange={addTodoHandler("todoTitle")}
         />
       </div>
       <div className={classes.inputsField}>
         <TextField
           id="outlined-textarea"
+          inputRef={todoTopicRef}
           label="Enter Concepts"
           placeholder="Enter Concepts"
-          onChange={addTodoHandler("todoTopic")}
         />
       </div>
       <Button onClick={addClickHandler} variant="outlined" size="large">

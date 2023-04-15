@@ -8,12 +8,12 @@ export default function Header() {
     <>
       <div className={classes.headingPrimary}>
         <Typography variant="h2" color="primary" textAlign="center">
-          To Do Learn App
+          TODO LEARN DEV
         </Typography>
       </div>
       <div className={classes.headingSecondary}></div>
       <Typography variant="h4" color="textSecondary" textAlign="center">
-        Create a roadmap of your development
+        CREATE A ROADMAP OF YOUR DEVELOPMENT
       </Typography>
     </>
   );
