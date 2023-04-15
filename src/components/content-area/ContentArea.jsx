@@ -8,16 +8,15 @@ import React from "react";
 // CREATED COMPONENTS
 import TodoList from "../todo-list/TodoList";
 import AddTodo from "../add-todo/AddTodo";
+import ProgressField from "../progress-field/ProgressField";
 // MAIN DATA FROM AN ARRAY OF OBJECT
 import todos from "../../data/data";
 // SPECIAL LIBRARY FOR GENERATE A RANDOM ID
 import { v4 as uuid } from "uuid";
 // CREATED FUNCTIONS
 import { formatDate } from "../../functions/functions";
-
-////////////////////////////////////////////////////////////////////
-/////// KEY PROPERTY FOR LOCALE STORAGE
-const LOCALE_STORAGE_KEY = "todoApp.todos";
+// KEY PROPERTY FOR LOCALE STORAGE
+import { LOCALE_STORAGE_KEY } from "../../configs/config";
 
 ////////////////////////////////////////////////////////////////////
 /////// REACT FUNCTIONAL COMPONENT STARTS
@@ -183,7 +182,6 @@ export default function ContentArea() {
     <>
       <div className={classes.contentArea}>
         <AddTodo
-          // addTodoHandler={addTodoHandler}
           addClickHandler={addClickHandler}
           datePickerHandler={datePickerHandler}
           todoSubjectRef={todoSubjectRef}
@@ -203,13 +201,18 @@ export default function ContentArea() {
           onEditChangeSubject={onEditChangeSubject}
           onEditChangeTopic={onEditChangeTopic}
         />
-        <Button
-          onClick={() => onDeleteCompletedHandler(filteredTodo)}
-          variant="contained"
-          color="success"
-        >
-          Delete Completed
-        </Button>
+        <div className={classes.completeFieled}>
+          <ProgressField allTodos={allTodos} />
+          <div className={classes.btnComplete}>
+            <Button
+              onClick={() => onDeleteCompletedHandler(filteredTodo)}
+              variant="contained"
+              color="success"
+            >
+              Delete Completed
+            </Button>
+          </div>
+        </div>
       </div>
     </>
   );
