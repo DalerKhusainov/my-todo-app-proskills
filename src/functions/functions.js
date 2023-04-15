@@ -40,3 +40,7 @@ export function convertMonths(date) {
   if (month === "11") return `${day} Nov ${year}`;
   if (month === "12") return `${day} Dec ${year}`;
 }
+
+export function initialMessage(text) {
+  alert(text);
+}
