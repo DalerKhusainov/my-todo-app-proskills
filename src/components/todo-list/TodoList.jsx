@@ -1,5 +1,5 @@
 import React from "react";
-import Todo from "../todos/Todo";
+import Todo from "../todo/Todo";
 import useStyles from "../../styles/styles";
 
 export default function TodoList({

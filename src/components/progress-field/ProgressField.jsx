@@ -1,20 +1,24 @@
 import React from "react";
 import useStyles from "../../styles/styles";
+import { calcPercentage } from "../../functions/functions";
 import LinearProgressBar from "../linear-progress-bar/LinearProgressBar";
 
+///////////////////////////////////////////////////////////////
+///// REACT COMPONENT STARTS
 function ProgressField({ allTodos }) {
+  // MATERIAL UI HOOK STYLES
   const classes = useStyles();
+  // REACT USESTATES
   const [completedTodos, setCompletedTodos] = React.useState([]);
   const [notCompletedTodos, setNotCompletedTodos] = React.useState([]);
 
-  //   console.log(typeof completedTodos.length);
-  //   console.log(notCompletedTodos.length);
-
+  // FILTER METHOD TO DEFINE IN THE LIST ONLY COMPLETED ONES
   React.useEffect(() => {
     const newCompletedTodos = allTodos.filter((todo) => todo.complete === true);
     setCompletedTodos(newCompletedTodos);
   }, [allTodos]);
 
+  // FILTER METHOD TO DEFINE IN THE LIST ONLY NOT COMPLETED ONES
   React.useEffect(() => {
     const newNotCompletedTodos = allTodos.filter(
       (todo) => todo.complete === false
@@ -22,11 +26,7 @@ function ProgressField({ allTodos }) {
     setNotCompletedTodos(newNotCompletedTodos);
   }, [allTodos]);
 
-  const calcPercentage = (num1, num2) => {
-    const percentage = (num2 / num1) * 100;
-    return percentage;
-  };
-
+  // THIS VARIABLE CONTAINS PERCENTAGE OF PROGRESS
   const progressPercentage = calcPercentage(
     allTodos.length,
     completedTodos.length
@@ -34,13 +34,13 @@ function ProgressField({ allTodos }) {
 
   return (
     <div className={classes.progressField}>
-      <p className={classes.progressText}>Progress</p>
+      <p className={classes.progressText}>Progress Panel</p>
       <div className={classes.staticField}>
         <p className={`${classes.staticText} ${classes.staticTextLeft}`}>
-          {`Completed: ${completedTodos.length}`}
+          {`Mastered: ${completedTodos.length}`}
         </p>
         <p className={`${classes.staticText} ${classes.staticTextMiddle}`}>
-          Half
+          {`${Math.trunc(progressPercentage)}%`}
         </p>
         <p className={`${classes.staticText} ${classes.staticTextRight}`}>
           {`In progress: ${notCompletedTodos.length}`}

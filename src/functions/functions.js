@@ -1,3 +1,5 @@
+import * as React from "react";
+
 //////////////////////////////////////////////////////////////////////
 ///// THIS FUNCTION CONVERTS THE DATE FROM DatePicker COMPONENT
 ///// IT'S BEING USED IN ContentArea.jsx COMPONENT (2 places)
@@ -41,6 +43,25 @@ export function convertMonths(date) {
   if (month === "12") return `${day} Dec ${year}`;
 }
 
-export function initialMessage(text) {
-  alert(text);
+///// THE FUNCTION THAT MAKES A COMPONENT POPUP IN 2 SECONDS
+///// IT'S BEING USED IN ModalMassage.jsx COMPONENT (1 place)
+export function MyComponent(component) {
+  const [visible, setVisible] = React.useState(true);
+
+  React.useEffect(() => {
+    const timeout = setTimeout(() => {
+      setVisible(false);
+    }, 2000); // Set the timeout to 2 seconds
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  return visible ? null : component;
 }
+
+///// THE FUNCTION THAT DEFINES THE PERCENTAGE ONE NUMBER OUT OF ANOTHER ONE
+///// IT'S BEING USED IN ProgressField.jsx COMPONENT (1 place)
+export const calcPercentage = (num1, num2) => {
+  const percentage = (num2 / num1) * 100;
+  return percentage;
+};

@@ -65,7 +65,7 @@ export default function Todo({
           <Typography
             color="primary"
             variant="h6"
-            sx={{ width: "30%", flexShrink: 0 }}
+            sx={{ width: "35%", flexShrink: 0 }}
           >
             {todoTitle}
           </Typography>

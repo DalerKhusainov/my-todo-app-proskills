@@ -1,12 +1,23 @@
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
+  headingPrimary: {
+    fontFamily: `"Oswald", sans-serif`,
+    fontSize: "48px",
+    textTransform: "uppercase",
+    color: "#5c64ca",
+  },
+  headingSecondaryField: {
+    width: "60%",
+    color: "#495057",
+  },
+  headingSecondary: { textAlign: "center", fontFamily: `"Oswald", sans-serif` },
   todoList: {
     width: "800px",
     height: "400px",
     overflowY: "scroll",
     paddingTop: "20px",
-    margin: "15px 0px 15px 0px",
+    margin: "20px 0px 25px 0px",
   },
   statusComplete: {
     backgroundColor: "orangered",
@@ -18,10 +29,10 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "30px",
-    margin: "30px auto",
+    padding: "0 25px 30px 25px",
+    margin: " 35px auto",
     width: "900px",
-    height: "650px",
+    height: "auto",
     backgroundColor: "#f1f3f5",
     borderRadius: "10px",
     boxShadow: "rgb(38, 57, 77) 0px 20px 30px -10px",
@@ -35,8 +46,8 @@ const useStyles = makeStyles((theme) => ({
     width: "inherit",
   },
   progressField: {
-    width: "80%",
-    backgroundColor: "#e9ecef",
+    width: "85%",
+    backgroundColor: "#f1f3f5",
     padding: "5px 15px 15px 15px",
     borderRadius: "5px",
   },
@@ -44,8 +55,10 @@ const useStyles = makeStyles((theme) => ({
     margin: "0 0 5px 0",
     padding: "0px",
     textAlign: "center",
-    color: "#1A90FF",
-    fontSize: "22px",
+    color: "#5c64ca",
+    fontSize: "18px",
+    fontWeight: "500",
+    textTransform: "uppercase",
   },
   staticField: {
     display: "flex",
@@ -55,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
   },
   staticText: { margin: "0px", padding: "0px" },
   staticTextLeft: { color: "#2E7D32", fontWeight: "500" },
-  staticTextMiddle: { color: "#525557", fontWeight: "500" },
+  staticTextMiddle: { color: "#5c64ca", fontWeight: "500" },
   staticTextRight: { color: "#1A90FF", fontWeight: "500" },
   todo: { marginBottom: "1px" },
   btnActions: {
@@ -78,10 +91,10 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     columnGap: "35px",
+    marginTop: "30px",
     marginLeft: "20px",
     marginRight: "20px",
   },
-  headingPrimary: { marginTop: "30px" },
   inputsField: { width: "200px" },
   inputsEditFields: {
     display: "flex",
@@ -106,6 +119,12 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     columnGap: "30px",
   },
+  checkboxModalField: {
+    display: "flex",
+    alignItems: "center",
+    marginTop: "5px",
+  },
+  checkboxModalText: { color: "#1A90FF", fontSize: "18px", fontWeight: "500" },
 }));
 
 export default useStyles;

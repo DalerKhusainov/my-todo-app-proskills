@@ -14,23 +14,23 @@ export default function AddTodo({
   return (
     <div className={classes.inputField}>
       <div className={classes.inputsField}>
-        <DatePicker datePickerHandler={datePickerHandler} />
-      </div>
-      <div className={classes.inputsField}>
         <TextField
           id="outlined-textarea"
           inputRef={todoSubjectRef}
           label="Enter Subject"
-          placeholder="Enter Subject"
+          placeholder="e.g React.js or Vue.js"
         />
       </div>
       <div className={classes.inputsField}>
         <TextField
           id="outlined-textarea"
           inputRef={todoTopicRef}
-          label="Enter Concepts"
-          placeholder="Enter Concepts"
+          label="What you'll learn"
+          placeholder="e.g JSX, props or hooks"
         />
+      </div>
+      <div className={classes.inputsField}>
+        <DatePicker datePickerHandler={datePickerHandler} />
       </div>
       <Button onClick={addClickHandler} variant="outlined" size="large">
         Add

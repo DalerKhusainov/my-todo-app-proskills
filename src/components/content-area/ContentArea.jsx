@@ -9,12 +9,15 @@ import React from "react";
 import TodoList from "../todo-list/TodoList";
 import AddTodo from "../add-todo/AddTodo";
 import ProgressField from "../progress-field/ProgressField";
+import Header from "../header/Header";
 // MAIN DATA FROM AN ARRAY OF OBJECT
 import todos from "../../data/data";
 // SPECIAL LIBRARY FOR GENERATE A RANDOM ID
 import { v4 as uuid } from "uuid";
 // CREATED FUNCTIONS
 import { formatDate } from "../../functions/functions";
+// import { MyComponent } from "../../functions/functions";
+
 // KEY PROPERTY FOR LOCALE STORAGE
 import { LOCALE_STORAGE_KEY } from "../../configs/config";
 
@@ -181,6 +184,7 @@ export default function ContentArea() {
   return (
     <>
       <div className={classes.contentArea}>
+        <Header />
         <AddTodo
           addClickHandler={addClickHandler}
           datePickerHandler={datePickerHandler}
